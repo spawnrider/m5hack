@@ -125,8 +125,7 @@ void mainmenu_ota() {
   if (ez.msgBox("Get OTA_https", "This will replace the current program with a new version from GitHub.", "Cancel#OK#") == "OK") {
     ezProgressBar progress_bar("OTA update in progress", "Downloading ...", "Abort");
 #include "raw_githubusercontent_com.h" // the root certificate is now in const char * root_cert
-    ESP.restart();
-    if (ez.wifi.update("https://raw.githubusercontent.com/ropg/M5ez/master/compiled_binaries/OTA_https.bin", root_cert, &progress_bar)) {
+    if (ez.wifi.update("https://raw.githubusercontent.com/spawnrider/m5hack/master/binaries/m5hack_esp32.bin", root_cert, &progress_bar)) {
       ez.msgBox("Over The Air updater", "OTA download successful. Reboot to new firmware", "Reboot");
       ESP.restart();
     } else {
